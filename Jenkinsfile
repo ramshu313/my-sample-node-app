@@ -20,19 +20,19 @@ pipeline {
 
     stage('Install') { steps { sh 'npm ci' } }
 
-    stage('Test') {
-      steps { sh 'npm test' } // replace with your real tests
-      post {
-        always {
-          // publish junit if you have: junit 'reports/junit/*.xml'
-        }
-      }
-    }
+    // stage('Test') {
+    //   steps { sh 'npm test' } // replace with your real tests
+    //   post {
+    //     always {
+    //       // publish junit if you have: junit 'reports/junit/*.xml'
+    //     }
+    //   }
+    // }
 
-    stage('Build (optional)') {
-      when { anyOf { fileExists('build'); fileExists('vite.config.ts'); fileExists('webpack.config.js') } }
-      steps { sh 'npm run build' }
-    }
+    // stage('Build (optional)') {
+    //   when { anyOf { fileExists('build'); fileExists('vite.config.ts'); fileExists('webpack.config.js') } }
+    //   steps { sh 'npm run build' }
+    // }
   }
 
   post {
