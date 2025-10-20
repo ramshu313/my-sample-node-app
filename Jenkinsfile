@@ -36,7 +36,7 @@ pipeline {
   }
 
   post {
-    success { echo '✅ Build passed' }
+    success { echo '✅ Build passed!' }
     failure { echo '❌ Build failed!' }
     always  { archiveArtifacts allowEmptyArchive: true, artifacts: 'build/**' }
   }
