@@ -1,0 +1,109 @@
+image and container differences:
+- image is a read-only template with the code and dependencies
+- container is a runtime instance of the image
+- image is created once and can be used to create multiple containers
+- container is created from an image and can be used to run the application
+- image is stored in a registry
+- container is stored in a file system
+- image is immutable
+- container is mutable
+- image is used to create a container
+- container is used to run the application
+
+
+immutable means that the image cannot be changed once it is created
+mutable means that the container can be changed once it is created
+
+image is used to create a container 
+container is used to run the application
+ 
+image is stored in a registry
+container is stored in a file system
+
+image is immutable
+container is mutable
+
+is imagr binary or text?
+image is binary
+container is text
+
+is image a file or a directory?
+image is a file
+container is a directory
+
+
+
+
+OS Layers:
+
+- Application Filesystem - Container, Virtual Machine
+- OS Kernel (Linux, Windows, etc.) - Virtual Machine
+- hardware 
+
+what is OS Kernel?
+A kernel is the core component of an operating system (OS) that manages all its resources and acts as the primary interface between the computer's hardware and software. It handles essential tasks such as memory management, process scheduling (deciding which programs get to use the CPU), and device management. 
+The kernel is the first program to load when the computer starts and remains in memory until the system is turned off
+
+docker image size is smaller (coz it doesn't have the OS Kernel)
+docker conatiners starts and run faster.
+
+
+docker run and start commands are different.
+docker run is used to create a new container from an image.
+docker start is used to start a stopped container.
+
+docker run sample command:  can you please explain all below commands against each other?
+- docker run -d -p 3000:3000 my-node-dock-app - This command runs the my-node-dock-app container in detached mode and maps port 3000 on the host to port 3000 in the container.
+- docker stop container_id - This command stops the container with the given container ID.
+- docker start container_id - This command starts the container with the given container ID.
+- docker restart container_id - This command restarts the container with the given container ID.
+- docker rm container_id - This command removes the container with the given container ID.
+- docker rmi image_id - This command removes the image with the given image ID.
+- docker pull image_name - This command pulls the image with the given image name.
+- docker push image_name - This command pushes the image with the given image name.
+- docker build -t image_name . - This command builds the image with the given image name.
+- docker exec -it container_id bash - This command executes a command in the container with the given container ID.
+- docker attach container_id - This command attaches to the container with the given container ID.
+- docker logs container_id - This command shows the logs of the container with the given container ID.
+- docker run -p 8080:80 my-web-app - This command runs the my-web-app container and maps port 8080 on the host to port 80 in the container.
+- docker ps -a - This command shows all containers.
+- docker images - This command shows all images.
+
+docker run vs start commands are different.
+docker run is used to create a new container from an image.
+docker start is used to start a stopped container.
+
+In this example:
+8080: is the host port.
+80: is the container port.
+This means that any traffic sent to port 8080 on your host machine will be forwarded to port 80 inside the my-web-app container.
+
+what is docker detach mode? detach mode is used to run the container in the background.
+
+
+what is docker network? network is used to connect containers to each other.
+
+3 types of volumes:
+- bind mount
+services:
+  api:
+    image: node:20-alpine
+    working_dir: /usr/src/app
+    volumes:
+      - ./src:/usr/src/app   # bind mount from host ./src folder
+- named volume
+services:
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+volumes:
+  dbdata:
+  
+- tmpfs
+services:
+  app:
+    image: nginx:alpine
+    tmpfs:
+      - /tmp

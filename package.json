@@ -1,0 +1,22 @@
+{
+  "name": "my-node-dock-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "node server.js",
+  "start:dev": "nodemon server.js",
+  "format": "prettier --write \"**/*.{js,json}\""
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "prettier": "^3.3.3"
+  }
+}
