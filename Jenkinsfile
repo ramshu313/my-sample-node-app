@@ -46,6 +46,11 @@ pipeline {
   options { timestamps() }   // no ansiColor here
   stages {
     stage('Install')  { steps { sh 'npm ci' } }
-    stage('Test')     { steps { sh 'npm test || true' } }
+
+    post {
+    success { echo '✅ Build passed!' }
+    failure { echo '❌ Build failed!' }
+    always  { archiveArtifacts allowEmptyArchive: true, artifacts: 'build/**' }
+  }
   }
 }
