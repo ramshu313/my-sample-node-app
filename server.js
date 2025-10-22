@@ -4,24 +4,25 @@ const app = express();
 const port = 3000;
 
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-});
+// const client = new Client({
+//   connectionString: process.env.DATABASE_URL,
+// });
 
-client.connect().then(() => {
-  console.log("Connected to the database");
-}).catch((err) => {
-  console.error("Error connecting to the database", err);
-});
+// client.connect().then(() => {
+//   console.log("Connected to the database");
+// }).catch((err) => {
+//   console.error("Error connecting to the database", err);
+// });
 
 app.get("/users", (req, res) => {
   const query = `SELECT * FROM users`;
-  client.query(query, (err, result) => {
-    if (err) {
-      res.status(500).send("Error fetching users");
-    }
-    res.send(result.rows[result.rows.length - 1]);
-  });
+  // client.query(query, (err, result) => {
+  //   if (err) {
+  //     res.status(500).send("Error fetching users");
+  //   }
+  //   res.send(result.rows[result.rows.length - 1]);
+  // });
+  res.send("User created successfully");
 });
 
 app.get("/create-user", (req, res) => {
