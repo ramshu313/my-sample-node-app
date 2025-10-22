@@ -23,7 +23,7 @@ pipeline {
           sleep 3
 
           # hit health endpoint (change port/path if different)
-          curl -fsS http://localhost:3000/health
+          curl -fsS http://localhost:3001/health
 
           # stop the app so the build can finish
           kill $APP_PID
