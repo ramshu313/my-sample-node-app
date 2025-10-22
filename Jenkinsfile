@@ -3,7 +3,6 @@ pipeline {
   options { timestamps() }
   stages {
     stage('Checkout')    { steps { checkout scm } }
-    stages {
     stage('Install & Test') {
       steps {
         sh 'node -v'
@@ -12,6 +11,5 @@ pipeline {
       }
     }
     stage('Build')   { steps { sh 'echo building; npm run build || true' } }
-  }
   }
 }
