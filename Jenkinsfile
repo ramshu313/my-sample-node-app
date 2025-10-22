@@ -26,7 +26,7 @@ pipeline {
           curl -fsS http://localhost:3001/health
 
           # stop the app so the build can finish
-          // kill $APP_PID
+          kill $APP_PID
         '''
       }
     }
