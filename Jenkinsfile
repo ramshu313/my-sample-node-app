@@ -1,8 +1,8 @@
 pipeline {
   agent any
   options { timestamps() }
+  tools { nodejs 'node20' }
   stages {
-    stage('Checkout')    { steps { checkout scm } }
     stage('Install & Test') {
       steps {
         sh 'node -v'
@@ -10,6 +10,5 @@ pipeline {
         sh 'npm test || true'
       }
     }
-    stage('Build')   { steps { sh 'echo building; npm run build || true' } }
   }
 }
