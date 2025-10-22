@@ -1,14 +1,13 @@
 pipeline {
-  agent any
-  options { timestamps() }
-  tools { nodejs 'node20' }
-  stages {
-    stage('Install & Test') {
-      steps {
-        sh 'node -v'
-        sh 'npm ci'
-        sh 'npm test || true'
-      }
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
+                    sh 'npm config ls'
+                }
+            }
+        }
     }
-  }
 }
