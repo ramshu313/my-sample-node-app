@@ -14,7 +14,7 @@ const port = 3000;
 //   console.error("Error connecting to the database", err);
 // });
 
-app.get("/users", (req, res) => {
+app.get("/health", (req, res) => {
   const query = `SELECT * FROM users`;
   // client.query(query, (err, result) => {
   //   if (err) {
