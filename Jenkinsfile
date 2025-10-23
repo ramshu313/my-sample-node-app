@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  options { timestamps() }
+
   tools { nodejs 'node22' }   // <-- must match the Tool Name from Manage Jenkins > Tools
 
   stages {
